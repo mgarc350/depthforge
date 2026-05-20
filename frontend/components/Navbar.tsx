@@ -61,7 +61,7 @@ export default function Navbar() {
               {isSignedIn ? (
                 <>
                   <CreditDisplay onBuyClick={() => setPricingOpen(true)} />
-                  <UserButton afterSignOutUrl="/" />
+                  <UserButton />
                 </>
               ) : (
                 <SignInButton mode="modal">
@@ -112,7 +112,7 @@ export default function Navbar() {
                 {isSignedIn ? (
                   <div className="flex items-center gap-3">
                     <CreditDisplay onBuyClick={() => { setMenuOpen(false); setPricingOpen(true); }} />
-                    <UserButton afterSignOutUrl="/" />
+                    <UserButton />
                   </div>
                 ) : (
                   <SignInButton mode="modal">
