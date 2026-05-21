@@ -2,10 +2,7 @@ FROM runpod/pytorch:2.2.0-py3.10-cuda12.1.1-devel-ubuntu22.04
 
 WORKDIR /app
 
-# Install Blender for FBX/BLEND export
 RUN apt-get update && apt-get install -y \
-    blender \
-    libgl1-mesa-glx \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
