@@ -1,6 +1,6 @@
 import type { GenerateRequest, Job, ExportFormat } from '@/types';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
 
 export async function generateModel(
   images: { [slot: string]: File },
@@ -17,7 +17,7 @@ export async function generateModel(
   formData.append('features', JSON.stringify(request.features));
   formData.append('texture_prompt', request.texturePrompt);
 
-  const res = await fetch(`${API_URL}/run`, {
+  const res = await fetch(`${API_URL}/generate`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${authToken}` },
     body: formData,
