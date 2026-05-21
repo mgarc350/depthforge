@@ -1,6 +1,6 @@
 import type { GenerateRequest, Job, ExportFormat } from '@/types';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? '';
 
 export async function generateModel(
   images: { [slot: string]: File },
@@ -17,7 +17,7 @@ export async function generateModel(
   formData.append('features', JSON.stringify(request.features));
   formData.append('texture_prompt', request.texturePrompt);
 
-  const res = await fetch(`${API_URL}/generate`, {
+  const res = await fetch(`${API_BASE}/api/generate`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${authToken}` },
     body: formData,
@@ -32,7 +32,7 @@ export async function generateModel(
 }
 
 export async function pollStatus(jobId: string, authToken: string): Promise<Job> {
-  const res = await fetch(`${API_URL}/status/${jobId}`, {
+  const res = await fetch(`${API_BASE}/api/status/${jobId}`, {
     headers: { Authorization: `Bearer ${authToken}` },
   });
 
@@ -41,5 +41,5 @@ export async function pollStatus(jobId: string, authToken: string): Promise<Job>
 }
 
 export function getDownloadUrl(jobId: string, format: ExportFormat): string {
-  return `${API_URL}/download/${jobId}/${format}`;
+  return `${API_BASE}/api/download/${jobId}/${format}`;
 }
