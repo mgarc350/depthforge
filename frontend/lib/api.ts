@@ -17,7 +17,7 @@ export async function generateModel(
   formData.append('features', JSON.stringify(request.features));
   formData.append('texture_prompt', request.texturePrompt);
 
-  const res = await fetch(`${API_URL}/generate`, {
+  const res = await fetch(`${API_URL}/run`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${authToken}` },
     body: formData,
