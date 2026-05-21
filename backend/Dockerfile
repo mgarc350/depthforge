@@ -12,8 +12,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --no-cache-dir fastapi==0.111.0 uvicorn[standard]==0.30.1 python-multipart==0.0.9 python-jose[cryptography]==3.3.0 httpx==0.27.0 pydantic==2.7.4 pydantic-settings==2.3.3
 
-RUN pip install --no-cache-dir torch==2.2.0 torchvision==0.17.2
-
 RUN pip install --no-cache-dir torchmcubes && pip install --no-cache-dir git+https://github.com/VAST-AI-Research/TripoSR.git@d26e331
 
 RUN pip install --no-cache-dir rembg==2.0.57 onnxruntime==1.18.0
