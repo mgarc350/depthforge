@@ -18,6 +18,10 @@ RUN pip install --no-cache-dir einops omegaconf transformers accelerate diffuser
 
 RUN pip install --no-cache-dir rembg==2.0.57 onnxruntime==1.18.0
 
+RUN apt-get update && apt-get install -y build-essential git && \
+    pip install --no-cache-dir torch-scatter -f https://data.pyg.org/whl/torch-2.2.0+cu121.html && \
+    pip install --no-cache-dir torchmcubes --no-build-isolation
+
 RUN pip install --no-cache-dir trimesh==4.4.0 pymeshlab pillow==10.3.0 numpy==1.26.4 scipy==1.13.1 pygltflib==1.16.2
 
 RUN pip install --no-cache-dir supabase==2.5.1 boto3==1.34.144 runpod==1.6.2
