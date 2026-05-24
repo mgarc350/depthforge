@@ -30,3 +30,4 @@ ENV PYTHONUNBUFFERED=1
 
 CMD ["python", "runpod_handler.py"]
 # rebuilt
+# v2
