@@ -24,4 +24,4 @@ jobs:
           context: ./backend
           platforms: linux/amd64
           push: true
-          tags: mgarc350/depthforge-backend:latest
+tags: mgarc350/depthforge-backend:latest,mgarc350/depthforge-backend:v2
