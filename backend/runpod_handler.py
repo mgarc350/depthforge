@@ -2,6 +2,12 @@
 RunPod serverless handler for DepthForge GPU jobs.
 Deploy this as a RunPod Serverless endpoint.
 """
+import subprocess, sys
+try:
+    import torchmcubes
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--no-cache-dir", "git+https://github.com/tatsy/torchmcubes.git"])
+
 import base64
 import io
 import json
