@@ -29,3 +29,4 @@ ENV TEMP_DIR=/tmp/depthforge
 ENV PYTHONUNBUFFERED=1
 
 CMD ["python", "runpod_handler.py"]
+# v3
