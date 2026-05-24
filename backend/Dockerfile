@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir fastapi==0.111.0 uvicorn[standard]==0.30.1 python-multipart==0.0.9 python-jose[cryptography]==3.3.0 httpx==0.27.0 pydantic==2.7.4 pydantic-settings==2.3.3
 
 RUN git clone https://github.com/VAST-AI-Research/TripoSR.git /app/TripoSR
+RUN pip install --no-cache-dir cupy-cuda12x torchmcubes
 ENV PYTHONPATH=/app/TripoSR:$PYTHONPATH
 RUN pip install --no-cache-dir einops omegaconf transformers accelerate diffusers huggingface_hub safetensors
 
